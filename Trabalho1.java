@@ -150,15 +150,7 @@ public class Trabalho1{
 							}	
 						}
 					}                                             
-					JOptionPane.showMessageDialog(null,"Os saldos ordenados do menor para o maior são: \n"+ vetorsaldo[0]
-						+"\n"+vetorsaldo[1]
-						+"\n"+vetorsaldo[2]
-						+"\n"+vetorsaldo[3]
-						+"\n"+vetorsaldo[4]
-						+"\n"+vetorsaldo[5]
-						+"\n"+vetorsaldo[6]
-						+"\n"+vetorsaldo[7]
-						+"\n"+vetorsaldo[8]);
+					JOptionPane.showMessageDialog(null,"Os saldos ordenados do menor para o maior são: \n"+ Arrays.toString(vetorsaldo));
 					operacao = 0;
 				break;
 

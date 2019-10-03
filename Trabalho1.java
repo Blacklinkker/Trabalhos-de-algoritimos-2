@@ -1,4 +1,5 @@
 import javax.swing.JOptionPane;
+import java.util.*;
 public class Trabalho1{
 	public static void main(String[] args) {
 		String nome,todosnomes,todascontas,todossaldos,rico;

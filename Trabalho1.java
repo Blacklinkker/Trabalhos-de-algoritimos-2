@@ -6,7 +6,6 @@ public class Trabalho1{
 		int operacao, i, j, conta,contarico,troca,a,fim;
 		double saldo, transacao,maior,aux;
 	
-		//Uma 3x3 que armazene os nomes dos correntistas
 		String A[][]=new String[3][3];
 		A[0][0] = "Tibúrcio";
 		A[0][1] = "Ricardo";
@@ -18,7 +17,6 @@ public class Trabalho1{
 		A[2][1] = "Batman";
 		A[2][2] = "Homem de Ferro";
 	
-		//Uma 3x3 que armazene os números das contas
 		int B[][]=new int[3][3];
 		B[0][0] = 111;
 		B[0][1] = 222;
@@ -30,7 +28,6 @@ public class Trabalho1{
 		B[2][1] = 888;
 		B[2][2] = 999;
 
-		//Uma 3x3 que armazene os saldos respectivos
 		double C[][]=new double[3][3];
 		C[0][0]=0.0;
 		C[0][1]=0.0;
@@ -44,7 +41,6 @@ public class Trabalho1{
 		
 		operacao = 0;
 		
-		//Menu(usando while e switch)
 		while(operacao<=5){
 			switch(operacao){
 				case 0:

@@ -1,11 +1,34 @@
 import javax.swing.JOptionPane;
 import java.util.*;
 public class Trabalho2{
+	
+	//Inserir Recebimento
+	public static double Recebimento(int conta,double saldo){
+		int i,j;
+		for (i=0;i<3 ;i++ ) {
+			for (j=0;j<3 ;j++ ) {
+				if (B[i][j] == conta) {
+					C[i][j] = C[i][j] + transacao;
+					saldo = C[i][j];
+					nome = A[i][j];
+					return saldo;
+				}
+			}
+		}
+	}
 	public static void main(String[] args) {
 		String nome,todosnomes,todascontas,todossaldos,rico;
 		int operacao, i, j, conta,contarico,troca,a,fim;
 		double saldo, transacao,maior,aux;
-	
+		
+		Matriz matrizes=new Matriz[3][3];
+		for (i=0;i<3;i++ ) {
+			for (j=0;j<3 ;j++ ) {
+				matrizes[i][j]=new Matriz();
+			}
+		}
+
+
 		String A[][]=new String[3][3];
 		A[0][0] = "Tibúrcio";
 		A[0][1] = "Ricardo";
@@ -16,7 +39,7 @@ public class Trabalho2{
 		A[2][0] = "Gedonstrôncio";
 		A[2][1] = "Batman";
 		A[2][2] = "Homem de Ferro";
-	
+		
 		int B[][]=new int[3][3];
 		B[0][0] = 111;
 		B[0][1] = 222;
@@ -52,22 +75,13 @@ public class Trabalho2{
 						+"5 - Os saldos ordenados do menor para o maior \n"
 						+"6 - Sair"));
 				break;
-
-				//Inserir Recebimento 
+ 
 				case 1:
 					conta = Integer.parseInt(JOptionPane.showInputDialog("Insira o numero da conta"));
 					transacao = Double.parseDouble(JOptionPane.showInputDialog("Insira o valor a ser depositado"));
-					for (i=0;i<3 ;i++ ) {
-						for (j=0;j<3 ;j++ ) {
-							if (B[i][j] == conta) {
-								C[i][j] = C[i][j] + transacao;
-								saldo = C[i][j];
-								nome = A[i][j];
-								JOptionPane.showMessageDialog(null,nome + " seu saldo atual é de: " + saldo);
-								operacao = 0;
-							}
-						}
-					}	
+					Recebimento(conta,transacao);
+					JOptionPane.showMessageDialog(null,nome + " seu saldo atual é de: " + saldo);
+					operacao = 0;
 				break;
 			
 				//Inserir Pagamento 

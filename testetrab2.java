@@ -53,7 +53,7 @@ public class testetrab2{
 				if (B[i][j] == conta) {
 					C[i][j] = C[i][j] + transacao;
 					saldo = C[i][j];
-					nome1= A[i][j];
+					nome= A[i][j];
 				}
 			}
 		}return saldo;
@@ -72,6 +72,7 @@ public class testetrab2{
 			}
 		}return saldo;
 	}
+
 	//Números de Conta, Correntistas e Saldos respectivos
 	public static void TodosNomesContasSaldos(){
 		todosnomes="";
@@ -86,6 +87,8 @@ public class testetrab2{
 			}
 		}
 	}
+
+	// o Número da Conta, o Nome do Correntista e o saldo do correntista mais RICO
 	public static int Maisrico(){
 		contarico=0;
 		maior=0;
@@ -101,6 +104,8 @@ public class testetrab2{
 			}
 		}return contarico;
 	}
+
+	// todos os saldos ordenados do menor para o maior usando BubbleSort.
 	public static void OrdenadoMaisrico(){
 		a=0;
 		for (i=0;i<3 ;i++ ) {
@@ -143,7 +148,7 @@ public class testetrab2{
 					conta = Integer.parseInt(JOptionPane.showInputDialog("Insira o numero da conta"));
 					transacao = Double.parseDouble(JOptionPane.showInputDialog("Insira o valor a ser depositado"));
 					saldo=Recebimento(conta,transacao);
-					JOptionPane.showMessageDialog(null,nome1 + " seu saldo atual é de: " + saldo);
+					JOptionPane.showMessageDialog(null,nome + " seu saldo atual é de: " + saldo);
 					operacao = 0;
 				break;
 			
@@ -161,7 +166,6 @@ public class testetrab2{
 						+"\nSaldos das contas " + todossaldos);
 				break;
 	
-				// o Número da Conta, o Nome do Correntista e o saldo do correntista mais RICO
 				case 4:
 					contarico=Maisrico();
 					JOptionPane.showMessageDialog(null," Numero da conta do correntista mais rico: "+contarico
@@ -169,7 +173,6 @@ public class testetrab2{
 						+"\n Com o saldo de: "+maior);
 				break;
 
-				// todos os saldos ordenados do menor para o maior usando BubbleSort.
 				case 5:                   
 					OrdenadoMaisrico();
 					JOptionPane.showMessageDialog(null,"Os saldos ordenados do menor para o maior são: \n"+ Arrays.toString(vetorsaldo));

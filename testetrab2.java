@@ -171,6 +171,7 @@ public class testetrab2{
 
 				// todos os saldos ordenados do menor para o maior usando BubbleSort.
 				case 5:                   
+					OrdenadoMaisrico();
 					JOptionPane.showMessageDialog(null,"Os saldos ordenados do menor para o maior são: \n"+ Arrays.toString(vetorsaldo));
 					operacao = 0;
 				break;

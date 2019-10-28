@@ -83,7 +83,21 @@ public class testetrab2{
 			}
 		}
 	}
-
+	public static int Maisrico(){
+		contarico=0;
+		maior=0;
+		rico="";
+		for (i=0;i<3 ;i++ ) {
+			for (j=0;j<3;j++) {
+				if (C[i][j]>maior) {
+					maior=C[i][j];
+					rico=A[i][j];
+					contarico=B[i][j];
+					operacao = 0;
+				}
+			}
+		}return contarico;
+	}
 
 	public static void main(String[] args) {
 		operacao = 0;
@@ -124,19 +138,8 @@ public class testetrab2{
 	
 				// o Número da Conta, o Nome do Correntista e o saldo do correntista mais RICO
 				case 4:
-					contarico=0;
-					maior=0;
-					rico="";
-					for (i=0;i<3 ;i++ ) {
-						for (j=0;j<3;j++) {
-							if (C[i][j]>maior) {
-								maior=C[i][j];
-								rico=A[i][j];
-								contarico=B[i][j];
-								operacao = 0;
-							}
-						}
-					}JOptionPane.showMessageDialog(null," Numero da conta do correntista mais rico: "+contarico
+					contarico=Maisrico();
+					JOptionPane.showMessageDialog(null," Numero da conta do correntista mais rico: "+contarico
 						+"\n Em nome de: "+rico
 						+"\n Com o saldo de: "+maior);
 				break;

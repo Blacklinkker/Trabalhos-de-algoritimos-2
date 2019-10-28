@@ -4,8 +4,9 @@ public class testetrab2{
 	static String nome,todosnomes,todascontas,todossaldos,rico,nome1;
 	static int operacao, i, j, conta,contarico,troca,a,fim;
 	static double saldo, transacao,maior,aux;
+	static double vetorsaldo[]=new double[9];
 	
-	static String A[][]=new String[3][3];
+	public static final String A[][]=new String[3][3];
 	static{
 		A[0][0] = "Tibúrcio";
 		A[0][1] = "Ricardo";
@@ -17,6 +18,7 @@ public class testetrab2{
 		A[2][1] = "Batman";
 		A[2][2] = "Homem de Ferro";
 	}
+	
 	static int B[][]=new int[3][3];
 	static{
 		B[0][0] = 111;
@@ -29,6 +31,7 @@ public class testetrab2{
 		B[2][1] = 888;
 		B[2][2] = 999;
 	}
+	
 	static double C[][]=new double[3][3];
 	static{
 		C[0][0]=0.0;
@@ -98,6 +101,28 @@ public class testetrab2{
 			}
 		}return contarico;
 	}
+	public static void OrdenadoMaisrico(){
+		a=0;
+		for (i=0;i<3 ;i++ ) {
+			for (j=0;j<3 ;j++ ) {
+				vetorsaldo[a]=C[i][j];
+				a++;
+			}
+		}
+		troca=1;
+		fim=a-1;
+		while(troca==1){
+			troca = 0;
+			for(i=0; i<fim;i++){
+				if (vetorsaldo[i] > vetorsaldo[i+1]){
+					aux = vetorsaldo[i];
+					vetorsaldo[i] = vetorsaldo[i+1];
+					vetorsaldo[i+1]=aux;
+					troca = 1;
+				}	
+			}
+		}                    
+	}
 
 	public static void main(String[] args) {
 		operacao = 0;
@@ -145,28 +170,7 @@ public class testetrab2{
 				break;
 
 				// todos os saldos ordenados do menor para o maior usando BubbleSort.
-				case 5:
-					a=0;
-					double vetorsaldo[]=new double[9];
-					for (i=0;i<3 ;i++ ) {
-						for (j=0;j<3 ;j++ ) {
-							vetorsaldo[a]=C[i][j];
-							a++;
-						}
-					}
-					troca=1;
-					fim=a-1;
-					while(troca==1){
-						troca = 0;
-						for(i=0; i<fim;i++){
-							if (vetorsaldo[i] > vetorsaldo[i+1]){
-								aux = vetorsaldo[i];
-								vetorsaldo[i] = vetorsaldo[i+1];
-								vetorsaldo[i+1]=aux;
-								troca = 1;
-							}	
-						}
-					}                                             
+				case 5:                   
 					JOptionPane.showMessageDialog(null,"Os saldos ordenados do menor para o maior são: \n"+ Arrays.toString(vetorsaldo));
 					operacao = 0;
 				break;

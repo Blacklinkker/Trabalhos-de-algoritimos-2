@@ -2,8 +2,8 @@ import javax.swing.JOptionPane;
 import java.util.*;
 public class testetrab2{
 	static String nome,todosnomes,todascontas,todossaldos,rico,nome1;
-	static int operacao, i, j, conta,contarico,troca,a,fim;
-	static double saldo, transacao,maior,aux;
+	static int operacao, i, j,contarico,troca,a,fim;
+	static double saldo,maior,aux;
 	static double vetorsaldo[]=new double[9];
 	
 	public static final String A[][]=new String[3][3];
@@ -45,12 +45,12 @@ public class testetrab2{
 		C[2][2]=0.0;
 	}
 	
-	//Inserir Recebimento
-	public static double Recebimento(int conta,double saldo){
+	//1 – Inserir Recebimento 
+	public static double Recebimento(int conta,double transacao){
 		int i,j;
 		for (i=0;i<3 ;i++ ) {
 			for (j=0;j<3 ;j++ ) {
-				if (B[i][j] == conta) {
+				if (conta == B[i][j]) {
 					C[i][j] = C[i][j] + transacao;
 					saldo = C[i][j];
 					nome= A[i][j];
@@ -58,8 +58,9 @@ public class testetrab2{
 			}
 		}return saldo;
 	}
-	//Inserir Pagamento 
-	public static double Pagamento(int conta,double pagamento){
+
+	//2 – Inserir Pagamento
+	public static double Pagamento(int conta,double transacao){
 		for (i=0; i<3; i++) {
 			for (j=0; j<3; j++) {
 				if (B[i][j] == conta) {
@@ -72,8 +73,7 @@ public class testetrab2{
 			}
 		}return saldo;
 	}
-
-	//Números de Conta, Correntistas e Saldos respectivos
+	//3 – Mostre em apenas uma mensagem todos os Números de Conta, Correntistas e Saldos respectivos
 	public static void TodosNomesContasSaldos(){
 		todosnomes="";
 		todossaldos="";
@@ -88,7 +88,7 @@ public class testetrab2{
 		}
 	}
 
-	// o Número da Conta, o Nome do Correntista e o saldo do correntista mais RICO
+	//4 – Mostre em apenas uma mensagem o Número da Conta, o Nome do Correntista e o saldo do correntista mais RICO.
 	public static int Maisrico(){
 		contarico=0;
 		maior=0;
@@ -105,7 +105,8 @@ public class testetrab2{
 		}return contarico;
 	}
 
-	// todos os saldos ordenados do menor para o maior usando BubbleSort.
+	//5 – Mostre em apenas uma mensagem todos os saldos ordenados do menor para o maior usando BubbleSort.
+
 	public static void OrdenadoMaisrico(){
 		a=0;
 		for (i=0;i<3 ;i++ ) {
@@ -145,17 +146,17 @@ public class testetrab2{
 				break;
  
 				case 1:
-					conta = Integer.parseInt(JOptionPane.showInputDialog("Insira o numero da conta"));
-					transacao = Double.parseDouble(JOptionPane.showInputDialog("Insira o valor a ser depositado"));
-					saldo=Recebimento(conta,transacao);
+					int contaAReceber = Integer.parseInt(JOptionPane.showInputDialog("Insira o numero da conta"));
+					double recebimento = Double.parseDouble(JOptionPane.showInputDialog("Insira o valor a ser depositado"));
+					saldo=Recebimento(contaAReceber,recebimento);
 					JOptionPane.showMessageDialog(null,nome + " seu saldo atual é de: " + saldo);
 					operacao = 0;
 				break;
 			
 				case 2:
-					conta = Integer.parseInt(JOptionPane.showInputDialog("Insira o número da conta"));
-					transacao = Double.parseDouble(JOptionPane.showInputDialog("Insira o valor do pagamento"));
-					Pagamento(conta,transacao);
+					int contaAPagar = Integer.parseInt(JOptionPane.showInputDialog("Insira o número da conta"));
+					double pagamento = Double.parseDouble(JOptionPane.showInputDialog("Insira o valor do pagamento"));
+					Pagamento(contaAPagar,pagamento);
 					JOptionPane.showMessageDialog(null, nome + " seu saldo atual é de: " + saldo);
 				break;
 				
@@ -165,7 +166,7 @@ public class testetrab2{
 						+"\nNomes dos correntistas " + todosnomes
 						+"\nSaldos das contas " + todossaldos);
 				break;
-	
+
 				case 4:
 					contarico=Maisrico();
 					JOptionPane.showMessageDialog(null," Numero da conta do correntista mais rico: "+contarico

@@ -2,7 +2,7 @@ import javax.swing.JOptionPane;
 import java.util.*;
 public class testetrab2{
 	static String nome,todosnomes,todascontas,todossaldos,rico,nome1;
-	static int operacao, i, j,contarico,troca,a,fim;
+	static int operacao, i, j,troca,a,fim;
 	static double saldo,maior,aux;
 	static double vetorsaldo[]=new double[9];
 	
@@ -90,7 +90,7 @@ public class testetrab2{
 
 	//4 – Mostre em apenas uma mensagem o Número da Conta, o Nome do Correntista e o saldo do correntista mais RICO.
 	public static int Maisrico(){
-		contarico=0;
+		int contarico=0;
 		maior=0;
 		rico="";
 		for (i=0;i<3 ;i++ ) {
@@ -156,7 +156,7 @@ public class testetrab2{
 				case 2:
 					int contaAPagar = Integer.parseInt(JOptionPane.showInputDialog("Insira o número da conta"));
 					double pagamento = Double.parseDouble(JOptionPane.showInputDialog("Insira o valor do pagamento"));
-					Pagamento(contaAPagar,pagamento);
+					saldo=Pagamento(contaAPagar,pagamento);
 					JOptionPane.showMessageDialog(null, nome + " seu saldo atual é de: " + saldo);
 				break;
 				
@@ -168,8 +168,8 @@ public class testetrab2{
 				break;
 
 				case 4:
-					contarico=Maisrico();
-					JOptionPane.showMessageDialog(null," Numero da conta do correntista mais rico: "+contarico
+					int maisrico=Maisrico();
+					JOptionPane.showMessageDialog(null," Numero da conta do correntista mais rico: "+maisrico
 						+"\n Em nome de: "+rico
 						+"\n Com o saldo de: "+maior);
 				break;

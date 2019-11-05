@@ -11,8 +11,8 @@ public class testetrab2{
 		String nomes;
 		int contas;
 		double saldos;
-			}
-		}
+	}
+		
 
 	//Matriz do TAD 
 	static NomesContasSaldos info[] = new NomesContasSaldos[9];

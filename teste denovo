@@ -4,8 +4,7 @@ public class testetrab2{
 	static String nome,rico,nomes,contas,saldos;
 	static int i, j, a;
 	static double saldo,maior;
-	static double vetorsaldo[] = new double[9];
-	
+
 	public static final String A[][]=new String[3][3];
 	static{
 		A[0][0] = "Tibúrcio";

@@ -1,23 +1,10 @@
 import javax.swing.JOptionPane;
 import java.util.*;
 public class testetrab2{
-	static String nome,rico;
+	static String nome,rico,nomes,contas,saldos;
 	static int i, j, a;
 	static double saldo,maior;
 	static double vetorsaldo[] = new double[9];
-
-	//Tipo abstrato de dado (TAD)
-	static class NomesContasSaldos{ 
-		String nomes;
-		int contas;
-		double saldos;
-	}	
-
-	//Matriz do TAD 
-	static NomesContasSaldos info[] = new NomesContasSaldos[9];
-
-	// Erros estão acontecendo com todas as matrizes.
-	// Problemas na declaração de variáveis aparentemente.
 	
 	public static final String A[][]=new String[3][3];
 	static{
@@ -84,19 +71,13 @@ public class testetrab2{
 			}
 		}return saldo;
 	}
+
 	//3 – Mostre em apenas uma mensagem todos os Números de Conta, Correntistas e Saldos respectivos
 	public static void TodosNomesContasSaldos(){
-		for (i=0;i<9 ;i++ ) {
-			info[i]=new NomesContasSaldos();
-		}
-		
+		nomes="";
 		for (i=0;i<3 ;i++ ) {
 			for (j=0;j<3 ;j++ ) {
-				a=0;
-				info[a].nomes = A[i][j];
-				info[a].contas = B[i][j];
-				info[a].saldos = C[i][j];
-				a++;	
+				nomes =nomes + "|Nome do correntista: " +A[i][j]+"|  |Numero da conta: "+B[i][j]+"|  |Saldo da conta: "+C[i][j]+"|"+"\n";
 			}
 		}
 	}
@@ -176,9 +157,7 @@ public class testetrab2{
 				
 				case 3:
 					TodosNomesContasSaldos();
-					JOptionPane.showMessageDialog(null,"Números das contas " +info[a].contas
-						+"\nNomes dos correntistas " + info[a].nomes
-						+"\nSaldos das contas " + info[a].saldos);
+					JOptionPane.showMessageDialog(null,nomes);
 					operacao = 0;
 				break;
 

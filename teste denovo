@@ -11,8 +11,7 @@ public class testetrab2{
 		String nomes;
 		int contas;
 		double saldos;
-	}
-		
+	}	
 
 	//Matriz do TAD 
 	static NomesContasSaldos info[] = new NomesContasSaldos[9];
@@ -90,13 +89,14 @@ public class testetrab2{
 		for (i=0;i<9 ;i++ ) {
 			info[i]=new NomesContasSaldos();
 		}
-		a=0;
+		
 		for (i=0;i<3 ;i++ ) {
 			for (j=0;j<3 ;j++ ) {
+				a=0;
 				info[a].nomes = A[i][j];
 				info[a].contas = B[i][j];
 				info[a].saldos = C[i][j];
-				a++;
+				a++;	
 			}
 		}
 	}

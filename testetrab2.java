@@ -1,13 +1,22 @@
 import javax.swing.JOptionPane;
 import java.util.*;
 public class testetrab2{
-	static String nome,todosnomes,todascontas,todossaldos,rico,nome1;
-	static int operacao, i, j,troca,a,fim;
-	static double saldo,maior,aux;
+	static String nome,rico,nomes,contas,saldos;
+	static int i, j, a;
+	static double saldo,maior;
+
 	static double vetorsaldo[]=new double[9];
-	
+
+	static class NomesContasSaldos{ 
+		int conta;
+		double saldo;
+	}
+
+	static NomesContasSaldos info[][] = new NomesContasSaldos[3][3];
+
 	public static final String A[][]=new String[3][3];
 	static{
+		
 		A[0][0] = "Tibúrcio";
 		A[0][1] = "Ricardo";
 		A[0][2] = "João";
@@ -17,42 +26,42 @@ public class testetrab2{
 		A[2][0] = "Gedonstrôncio";
 		A[2][1] = "Batman";
 		A[2][2] = "Homem de Ferro";
+
+		for (i=0;i<3 ;i++ ) {
+			for (j=0;j<3 ;j++ ) {
+				info[i][j]=new NomesContasSaldos();
+			}
+		}
+
+		info[0][0].conta = 111;
+		info[0][1].conta = 222;
+		info[0][2].conta= 333;
+		info[1][0].conta= 444;
+		info[1][1].conta= 555;
+		info[1][2].conta= 666;
+		info[2][0].conta= 777;
+		info[2][1].conta= 888;
+		info[2][2].conta= 999;
+	
+		info[0][0].saldo=0.0;
+		info[0][1].saldo=0.0;
+		info[0][2].saldo=0.0;
+		info[1][0].saldo=0.0;
+		info[1][1].saldo=0.0;
+		info[1][2].saldo=0.0;
+		info[2][0].saldo=0.0;
+		info[2][1].saldo=0.0;
+		info[2][2].saldo=0.0;
 	}
 	
-	static int B[][]=new int[3][3];
-	static{
-		B[0][0] = 111;
-		B[0][1] = 222;
-		B[0][2] = 333;
-		B[1][0] = 444;
-		B[1][1] = 555;
-		B[1][2] = 666;
-		B[2][0] = 777;
-		B[2][1] = 888;
-		B[2][2] = 999;
-	}
-	
-	static double C[][]=new double[3][3];
-	static{
-		C[0][0]=0.0;
-		C[0][1]=0.0;
-		C[0][2]=0.0;
-		C[1][0]=0.0;
-		C[1][1]=0.0;
-		C[1][2]=0.0;
-		C[2][0]=0.0;
-		C[2][1]=0.0;
-		C[2][2]=0.0;
-	}
 	
 	//1 – Inserir Recebimento 
 	public static double Recebimento(int conta,double transacao){
-		int i,j;
 		for (i=0;i<3 ;i++ ) {
 			for (j=0;j<3 ;j++ ) {
-				if (conta == B[i][j]) {
-					C[i][j] = C[i][j] + transacao;
-					saldo = C[i][j];
+				if (conta == info[i][j].conta) {
+					info[i][j].saldo = info[i][j].saldo + transacao;
+					saldo =info[i][j].saldo;
 					nome= A[i][j];
 				}
 			}
@@ -63,27 +72,21 @@ public class testetrab2{
 	public static double Pagamento(int conta,double transacao){
 		for (i=0; i<3; i++) {
 			for (j=0; j<3; j++) {
-				if (B[i][j] == conta) {
-					C[i][j] = C[i][j] - transacao;
-					saldo = C[i][j];
+				if (info[i][j].conta == conta) {
+					info[i][j].saldo = info[i][j].saldo - transacao;
+					saldo = info[i][j].saldo;
 					nome = A[i][j];
-					operacao=0;
-					return saldo;
 				}
 			}
 		}return saldo;
 	}
+
 	//3 – Mostre em apenas uma mensagem todos os Números de Conta, Correntistas e Saldos respectivos
 	public static void TodosNomesContasSaldos(){
-		todosnomes="";
-		todossaldos="";
-		todascontas="";
+		nomes="";
 		for (i=0;i<3 ;i++ ) {
 			for (j=0;j<3 ;j++ ) {
-				todosnomes=todosnomes + " : "+A[i][j];
-				todascontas=todascontas+" : "+B[i][j];
-				todossaldos=todossaldos+" : "+C[i][j];
-				operacao = 0;
+				nomes =nomes + "|Nome do correntista: " +A[i][j]+"|  |Numero da conta: "+info[i][j].conta+"|  |Saldo da conta: "+info[i][j].saldo+"|"+"\n";
 			}
 		}
 	}
@@ -95,11 +98,10 @@ public class testetrab2{
 		rico="";
 		for (i=0;i<3 ;i++ ) {
 			for (j=0;j<3;j++) {
-				if (C[i][j]>maior) {
-					maior=C[i][j];
+				if (info[i][j].saldo>maior) {
+					maior=info[i][j].saldo;
 					rico=A[i][j];
-					contarico=B[i][j];
-					operacao = 0;
+					contarico=info[i][j].conta;
 				}
 			}
 		}return contarico;
@@ -108,22 +110,23 @@ public class testetrab2{
 	//5 – Mostre em apenas uma mensagem todos os saldos ordenados do menor para o maior usando BubbleSort.
 
 	public static void OrdenadoMaisrico(){
-		a=0;
+		double aux;
+		a = 0;
 		for (i=0;i<3 ;i++ ) {
 			for (j=0;j<3 ;j++ ) {
-				vetorsaldo[a]=C[i][j];
+				vetorsaldo[a]=info[i][j].saldo;
 				a++;
 			}
 		}
-		troca=1;
-		fim=a-1;
+		int troca = 1;
+		int fim = a - 1;
 		while(troca==1){
 			troca = 0;
 			for(i=0; i<fim;i++){
 				if (vetorsaldo[i] > vetorsaldo[i+1]){
 					aux = vetorsaldo[i];
 					vetorsaldo[i] = vetorsaldo[i+1];
-					vetorsaldo[i+1]=aux;
+					vetorsaldo[i+1] = aux;
 					troca = 1;
 				}	
 			}
@@ -131,7 +134,7 @@ public class testetrab2{
 	}
 
 	public static void main(String[] args) {
-		operacao = 0;
+		int operacao = 0;
 		
 		while(operacao<=5){
 			switch(operacao){
@@ -158,20 +161,21 @@ public class testetrab2{
 					double pagamento = Double.parseDouble(JOptionPane.showInputDialog("Insira o valor do pagamento"));
 					saldo=Pagamento(contaAPagar,pagamento);
 					JOptionPane.showMessageDialog(null, nome + " seu saldo atual é de: " + saldo);
+					operacao = 0;
 				break;
 				
 				case 3:
 					TodosNomesContasSaldos();
-					JOptionPane.showMessageDialog(null,"Números das contas " + todascontas
-						+"\nNomes dos correntistas " + todosnomes
-						+"\nSaldos das contas " + todossaldos);
+					JOptionPane.showMessageDialog(null,nomes);
+					operacao = 0;
 				break;
 
 				case 4:
-					int maisrico=Maisrico();
+					int maisrico = Maisrico();
 					JOptionPane.showMessageDialog(null," Numero da conta do correntista mais rico: "+maisrico
 						+"\n Em nome de: "+rico
 						+"\n Com o saldo de: "+maior);
+					operacao = 0;
 				break;
 
 				case 5:                   

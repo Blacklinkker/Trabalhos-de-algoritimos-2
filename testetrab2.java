@@ -53,8 +53,7 @@ public class testetrab2{
 		info[2][1].saldo=0.0;
 		info[2][2].saldo=0.0;
 	}
-	
-	
+
 	//1 – Inserir Recebimento 
 	public static double Recebimento(int conta,double transacao,double saldo2){
 		for (i=0;i<3 ;i++ ) {
@@ -108,7 +107,6 @@ public class testetrab2{
 	}
 
 	//5 – Mostre em apenas uma mensagem todos os saldos ordenados do menor para o maior usando BubbleSort.
-
 	public static void OrdenadoMaisrico(){
 		double aux;
 		a = 0;

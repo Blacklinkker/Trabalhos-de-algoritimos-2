@@ -56,29 +56,29 @@ public class testetrab2{
 	
 	
 	//1 – Inserir Recebimento 
-	public static double Recebimento(int conta,double transacao){
+	public static double Recebimento(int conta,double transacao,double saldo2){
 		for (i=0;i<3 ;i++ ) {
 			for (j=0;j<3 ;j++ ) {
 				if (conta == info[i][j].conta) {
 					info[i][j].saldo = info[i][j].saldo + transacao;
-					saldo =info[i][j].saldo;
+					saldo2 =info[i][j].saldo;
 					nome= A[i][j];
 				}
 			}
-		}return saldo;
+		}return saldo2;
 	}
 
 	//2 – Inserir Pagamento
-	public static double Pagamento(int conta,double transacao){
+	public static double Pagamento(int conta,double transacao,double saldo2){
 		for (i=0; i<3; i++) {
 			for (j=0; j<3; j++) {
 				if (info[i][j].conta == conta) {
 					info[i][j].saldo = info[i][j].saldo - transacao;
-					saldo = info[i][j].saldo;
+					saldo2 = info[i][j].saldo;
 					nome = A[i][j];
 				}
 			}
-		}return saldo;
+		}return saldo2;
 	}
 
 	//3 – Mostre em apenas uma mensagem todos os Números de Conta, Correntistas e Saldos respectivos
@@ -135,6 +135,7 @@ public class testetrab2{
 
 	public static void main(String[] args) {
 		int operacao = 0;
+		double saldo2=0;
 		
 		while(operacao<=5){
 			switch(operacao){
@@ -151,7 +152,7 @@ public class testetrab2{
 				case 1:
 					int contaAReceber = Integer.parseInt(JOptionPane.showInputDialog("Insira o numero da conta"));
 					double recebimento = Double.parseDouble(JOptionPane.showInputDialog("Insira o valor a ser depositado"));
-					saldo=Recebimento(contaAReceber,recebimento);
+					saldo=Recebimento(contaAReceber,recebimento,saldo2);
 					JOptionPane.showMessageDialog(null,nome + " seu saldo atual é de: " + saldo);
 					operacao = 0;
 				break;
@@ -159,7 +160,7 @@ public class testetrab2{
 				case 2:
 					int contaAPagar = Integer.parseInt(JOptionPane.showInputDialog("Insira o número da conta"));
 					double pagamento = Double.parseDouble(JOptionPane.showInputDialog("Insira o valor do pagamento"));
-					saldo=Pagamento(contaAPagar,pagamento);
+					saldo=Pagamento(contaAPagar,pagamento,saldo2);
 					JOptionPane.showMessageDialog(null, nome + " seu saldo atual é de: " + saldo);
 					operacao = 0;
 				break;

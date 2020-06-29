@@ -11,7 +11,7 @@ public class Trabalho2{
 		int conta;
 		double saldo;
 	}
-
+ 
 	static NomesContasSaldos info[][] = new NomesContasSaldos[3][3];
 
 	public static final String A[][]=new String[3][3];

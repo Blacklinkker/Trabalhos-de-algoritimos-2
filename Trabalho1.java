@@ -5,7 +5,7 @@ public class Trabalho1{
 		String nome,todosnomes,todascontas,todossaldos,rico;
 		int operacao, i, j, conta,contarico,troca,a,fim;
 		double saldo, transacao,maior,aux;
-	
+	 
 		String A[][]=new String[3][3];
 		A[0][0] = "Tibúrcio";
 		A[0][1] = "Ricardo";
